@@ -1,8 +1,17 @@
 library(RCurl)
 library(rjson)
-URL.data$results[[1]]$geometry$location$lat
-address <- c("ejar")
 geo.connect <- function(address){
-
+  
+  addresses <- list()
+  for ( i in 1:length(address) ){
+    URL <- URLencode(paste("http://maps.google.com/maps/api/geocode/json?address=", address[i], sep=""))
+    URL.data <- fromJSON(getURL(URL))
+    latitude <- URL.data$results[[1]]$geometry$location$lat
+    longitude <- URL.data$results[[1]]$geometry$location$lng
+    formatted_address <- URL.data$results[[1]]$formatted_address
+    address.data <- list(latitude = latitude, longitude = longitude, address = formatted_address)
+    addresses[[i]] <- address.data
+  }
+  return(addresses)
+  
 }
-
