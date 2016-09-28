@@ -5,11 +5,16 @@ geo.connect <- function(address){
   
   URL <- URLencode(paste("http://maps.google.com/maps/api/geocode/json?address=", address, sep=""))
   URL.data <- fromJSON(getURL(URL))
-  latitude <- URL.data$results[[1]]$geometry$location$lat
-  longitude <- URL.data$results[[1]]$geometry$location$lng
-  formatted_address <- URL.data$results[[1]]$formatted_address
+    if (URL.data$status == "OK"){
+      latitude <- URL.data$results[[1]]$geometry$location$lat
+      longitude <- URL.data$results[[1]]$geometry$location$lng
+      formatted_address <- URL.data$results[[1]]$formatted_address
+    }else{
+      latitude <- paste("Invalid:", address)
+      longitude <- paste("Invalid:", address)
+      formatted_address <- paste("Invalid:", address)
+    } 
   address.data <- data.frame(latitude = latitude, longitude = longitude, address = formatted_address)
   
   return(address.data)
-  
 }
