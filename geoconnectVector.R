@@ -1,5 +1,5 @@
 
-geo.multiple <- function(address){
+geo.connect.vector <- function(address){
   
   addresses <- data.frame(latitude = NULL, longitude = NULL, address = NULL)
   

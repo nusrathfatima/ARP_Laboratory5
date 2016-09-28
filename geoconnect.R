@@ -10,9 +10,9 @@ geo.connect <- function(address){
       longitude <- URL.data$results[[1]]$geometry$location$lng
       formatted_address <- URL.data$results[[1]]$formatted_address
     }else{
-      latitude <- paste("Invalid:", address)
-      longitude <- paste("Invalid:", address)
-      formatted_address <- paste("Invalid:", address)
+      latitude <- 0
+      longitude <- 0
+      formatted_address <- "ERROR"
     } 
   address.data <- data.frame(latitude = latitude, longitude = longitude, address = formatted_address)
   
