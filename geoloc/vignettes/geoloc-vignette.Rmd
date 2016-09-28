@@ -1,0 +1,35 @@
+---
+title: "Connecting to Google Geocoding API with package geoloc"
+author: "Teno González Dos Santos, Jose Luis López Ruiz, Enrique Josué Álvarez Robles"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+This vignette documents the content provided in the package geoloc 1.0.0. This is a high-level adjunct to the low-level details found in *?linearRegression* and *?summary.linreg*. You’ll learn how to work with *geoloc* package by using the previous methods which will allow you to convert adresses into coordinates and vice versa.
+
+```{r, eval = FALSE, include = FALSE}
+library(devtools)
+devtools::install_github("teno/ARP_Laboratory5", subdir="geoloc")
+library(geoloc)
+```
+
+
+## Google Geocoding API
+
+The package *geoloc* works as a connector between the user and the Google Geocoding API. This API converts addresses (like *"1600 Amphitheatre Parkway, Mountain View, CA"*) into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers on a map, or position the map.
+
+It is also possible to perform **reverse geocoding**, the process of converting geographic coordinates into a human-readable address.
+
+The Google Maps Geocoding API provides a direct way to access these services via an HTTP request, as the following:
+
+```{r, eval = FALSE}
+#  https://maps.googleapis.com/maps/api/geocode/json?parameters
+```
+
+## Using package *geoloc*
+
+

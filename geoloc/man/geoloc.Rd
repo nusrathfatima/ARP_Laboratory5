@@ -4,9 +4,9 @@
 \name{geoloc}
 \alias{geoloc}
 \alias{geoloc-package}
-\title{A package for connecting to Google Geolocation API}
+\title{A package for connecting to Google Geocoding API}
 \description{
-The \code{geoloc} package provides an interface to connect with the \code{Google Geolocation API} with 
+The \code{geoloc} package provides an interface to connect with the \code{Google Geocoding API} with 
 functions that convert adresses into coordinates and vice versa.
 }
 \details{
@@ -24,6 +24,6 @@ The package provides the following functions:
    }
 }
 \references{
-Google Geolocation API - \url{https://developers.google.com/maps/documentation/geocoding/intro}\cr
+Google Geocoding API - \url{https://developers.google.com/maps/documentation/geocoding/intro}\cr
 }
 

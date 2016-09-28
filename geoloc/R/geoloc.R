@@ -1,6 +1,6 @@
-#' A package for connecting to Google Geolocation API
+#' A package for connecting to Google Geocoding API
 #'
-#' @description The \code{geoloc} package provides an interface to connect with the \code{Google Geolocation API} with 
+#' @description The \code{geoloc} package provides an interface to connect with the \code{Google Geocoding API} with 
 #' functions that convert adresses into coordinates and vice versa.
 #' 
 #' @details The package provides the following functions:
@@ -16,7 +16,7 @@
 #'      \item Jose Luis López Ruiz - \url{https://github.com/pepelu8000}
 #'    }
 #' 
-#' @references Google Geolocation API - \url{https://developers.google.com/maps/documentation/geocoding/intro}\cr
+#' @references Google Geocoding API - \url{https://developers.google.com/maps/documentation/geocoding/intro}\cr
 #'
 #'
 #' @docType package

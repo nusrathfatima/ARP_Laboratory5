@@ -1,12 +1,17 @@
 Package: geoloc
 Type: Package
-Title: A Google Geocode API connector
+Title: A Google Geocoding API connector
 Version: 1.0
 Date: 2016-09-26
 Authors@R: c(person("Teno", "Gonzalez Dos Santos", email = "tengo471@student.liu.se", role = c("aut", "cre")),
              person("Enrique Josue", "Alvarez Robles", email = "enral465@student.liu.se", role = c("aut")),
              person("Jose Luis", "Lopez Ruiz", email = "joslo172@student.liu.se", role = c("aut")))
-Description: A faster and robust tool for connecting to Google Geolocation API
+Description: A faster and robust tool for connecting to Google Geocoding API
     and convert adresses into coordinates and vice versa.
 License: GPL
 RoxygenNote: 5.0.1
+Imports: RCurl, rjson
+Suggests: testthat,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
