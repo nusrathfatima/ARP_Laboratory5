@@ -1,5 +1,6 @@
 
-geo.connect.csv <- function(address.csv){
+geo_connect_csv <- function(csv_path){
+  address.csv <- read.csv(csv_path, sep = ";")
   
   search.address <- NULL
   address.column <- any(tolower(names(address.csv)) == "address")
@@ -31,5 +32,5 @@ geo.connect.csv <- function(address.csv){
       search.address[coord.position.na] <- ""
     }
   }
-  geo.connect.vector(search.address)
+  geo_connect_vector(search.address)
 }

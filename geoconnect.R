@@ -1,7 +1,7 @@
 library(RCurl)
 library(rjson)
 
-geo.connect <- function(address){
+geo_connect <- function(address){
   
   URL <- URLencode(paste("http://maps.google.com/maps/api/geocode/json?address=", address, sep=""))
   URL.data <- fromJSON(getURL(URL))
