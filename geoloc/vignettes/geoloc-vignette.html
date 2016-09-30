@@ -12,7 +12,7 @@
 
 <meta name="author" content="Teno González Dos Santos, Jose Luis López Ruiz, Enrique Josué Álvarez Robles" />
 
-<meta name="date" content="2016-09-28" />
+<meta name="date" content="2016-09-30" />
 
 <title>Connecting to Google Geocoding API with package geoloc</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Connecting to Google Geocoding API with package geoloc</h1>
 <h4 class="author"><em>Teno González Dos Santos, Jose Luis López Ruiz, Enrique Josué Álvarez Robles</em></h4>
-<h4 class="date"><em>2016-09-28</em></h4>
+<h4 class="date"><em>2016-09-30</em></h4>
 
 
 
@@ -79,11 +79,24 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h2>Google Geocoding API</h2>
 <p>The package <em>geoloc</em> works as a connector between the user and the Google Geocoding API. This API converts addresses (like <em>“1600 Amphitheatre Parkway, Mountain View, CA”</em>) into geographic coordinates (like latitude 37.423021 and longitude -122.083739), which you can use to place markers on a map, or position the map.</p>
 <p>It is also possible to perform <strong>reverse geocoding</strong>, the process of converting geographic coordinates into a human-readable address.</p>
-<p>The Google Maps Geocoding API provides a direct way to access these services via an HTTP request, as the following:</p>
+<p>The <em>Google Maps Geocoding API</em> provides a direct way to access these services via an HTTP request, as the following:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co">#  https://maps.googleapis.com/maps/api/geocode/json?parameters</span></code></pre></div>
 </div>
 <div id="using-package-geoloc" class="section level2">
 <h2>Using package <em>geoloc</em></h2>
+<p>This package comes with a pair of useful functions that allows you to get geocoding information using two different input: <strong>character vectors</strong> or <strong>csv files</strong>.</p>
+<div id="geo_connect_vector" class="section level3">
+<h3>geo_connect_vector()</h3>
+<p>This function loops over the vector of addresses and/or coordinates, passes each one of them as a parameter to an internal function that connects to the <em>Google Geocoding API</em> via URL and gets the output. Then it returns the output of the request into a formatted dataframe with the geocoding information. It is used in the following way:</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;Madrid&quot;</span>, <span class="st">&quot;Skattegarden 29B, Linkoping&quot;</span>))
+<span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;40.41678, -3.70379&quot;</span>, <span class="st">&quot;28.49634, -16.32415&quot;</span>))
+<span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;40.41678, -3.70379&quot;</span>, <span class="st">&quot;Skattegarden 29B, Linkoping&quot;</span>))</code></pre></div>
+</div>
+<div id="geo_connect_csv" class="section level3">
+<h3>geo_connect_CSV()</h3>
+<p>This function takes a csv file path (with the required columns <em>Address</em> and/or <em>Latitude</em> and <em>Longitude</em>) as a parameter and creates a vector with the information that will be passed to the <strong>geo_connect_vector</strong> function that will connect with the <em>Google Geocoding API</em> and get the corresponding output.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geo_connect_csv</span>(<span class="st">&quot;my_csv_filepath&quot;</span>)</code></pre></div>
+</div>
 </div>
 
 

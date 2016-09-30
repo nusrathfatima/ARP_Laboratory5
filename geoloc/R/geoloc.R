@@ -16,7 +16,7 @@
 #'      \item Jose Luis López Ruiz - \url{https://github.com/pepelu8000}
 #'    }
 #' 
-#' @references Google Geocoding API - \url{https://developers.google.com/maps/documentation/geocoding/intro}\cr
+#' @references Google Geocoding API - \url{https://developers.google.com/maps/documentation/geocoding/intro}
 #'
 #'
 #' @docType package

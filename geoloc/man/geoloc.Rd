@@ -24,6 +24,6 @@ The package provides the following functions:
    }
 }
 \references{
-Google Geocoding API - \url{https://developers.google.com/maps/documentation/geocoding/intro}\cr
+Google Geocoding API - \url{https://developers.google.com/maps/documentation/geocoding/intro}
 }
 
