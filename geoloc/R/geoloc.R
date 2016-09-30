@@ -5,8 +5,8 @@
 #' 
 #' @details The package provides the following functions:
 #' \itemize{
-#'    \item \code{Func1}: 
-#'    \item \code{Func2}: 
+#'    \item \code{geo_connect_vector}: Google Geocoding API connector for character vectors
+#'    \item \code{geo_connect_csv}: Google Geocoding API connector for csv files
 #' }
 
 #'
