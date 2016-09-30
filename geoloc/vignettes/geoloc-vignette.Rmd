@@ -11,9 +11,9 @@ vignette: >
 
 This vignette documents the content provided in the package geoloc 1.0.0. This is a high-level adjunct to the low-level details found in *?linearRegression* and *?summary.linreg*. You’ll learn how to work with *geoloc* package by using the previous methods which will allow you to convert adresses into coordinates and vice versa.
 
-```{r, eval = FALSE, include = FALSE}
+```{r, include = FALSE}
 library(devtools)
-devtools::install_github("teno/ARP_Laboratory5", subdir="geoloc")
+devtools::install_github("tenoglez/ARP_Laboratory5", subdir="geoloc")
 library(geoloc)
 ```
 
@@ -36,7 +36,7 @@ This package comes with a pair of useful functions that allows you to get geocod
 ### geo_connect_vector()
 This function loops over the vector of addresses and/or coordinates, passes each one of them as a parameter to an internal function that connects to the *Google Geocoding API* via URL and gets the output. Then it returns the output of the request into a formatted dataframe with the geocoding information. It is used in the following way:
 
-```{r geo_connect_vector, eval=FALSE}
+```{r geo_connect_vector}
 geo_connect_vector(c("Madrid", "Skattegarden 29B, Linkoping"))
 geo_connect_vector(c("40.41678, -3.70379", "28.49634, -16.32415"))
 geo_connect_vector(c("40.41678, -3.70379", "Skattegarden 29B, Linkoping"))
@@ -47,6 +47,7 @@ This function takes a csv file path (with the required columns *Address* and/or 
 a parameter and creates a vector with the information that will be passed to the **geo_connect_vector** function
 that will connect with the *Google Geocoding API* and get the corresponding output.
 
-```{r geo_connect_csv, eval=FALSE}
-geo_connect_csv("my_csv_filepath")
+```{r geo_connect_csv}
+# geo_connect_csv("your_csv_filepath")
+geo_connect_csv(system.file("extdata", "Addresses.csv", package = "geoloc"))
 ```

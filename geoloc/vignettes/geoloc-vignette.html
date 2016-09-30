@@ -88,14 +88,42 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="geo_connect_vector" class="section level3">
 <h3>geo_connect_vector()</h3>
 <p>This function loops over the vector of addresses and/or coordinates, passes each one of them as a parameter to an internal function that connects to the <em>Google Geocoding API</em> via URL and gets the output. Then it returns the output of the request into a formatted dataframe with the geocoding information. It is used in the following way:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;Madrid&quot;</span>, <span class="st">&quot;Skattegarden 29B, Linkoping&quot;</span>))
-<span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;40.41678, -3.70379&quot;</span>, <span class="st">&quot;28.49634, -16.32415&quot;</span>))
-<span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;40.41678, -3.70379&quot;</span>, <span class="st">&quot;Skattegarden 29B, Linkoping&quot;</span>))</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;Madrid&quot;</span>, <span class="st">&quot;Skattegarden 29B, Linkoping&quot;</span>))</code></pre></div>
+<pre><code>## Loading required package: bitops</code></pre>
+<pre><code>##   latitude longitude                                    address
+## 1 40.41678  -3.70379                              Madrid, Spain
+## 2 58.42900  15.58209 Skattegården 29B, 586 48 Linköping, Sweden</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;40.41678, -3.70379&quot;</span>, <span class="st">&quot;28.49634, -16.32415&quot;</span>))</code></pre></div>
+<pre><code>##   latitude  longitude
+## 1 40.41671  -3.703779
+## 2 28.49633 -16.324165
+##                                                                                 address
+## 1                                         Plaza Puerta del Sol, 11, 28013 Madrid, Spain
+## 2 Av. de San Diego, 47, 38202 San Cristóbal de La Laguna, Santa Cruz de Tenerife, Spain</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geo_connect_vector</span>(<span class="kw">c</span>(<span class="st">&quot;40.41678, -3.70379&quot;</span>, <span class="st">&quot;Skattegarden 29B, Linkoping&quot;</span>))</code></pre></div>
+<pre><code>##   latitude longitude                                       address
+## 1 40.41671 -3.703779 Plaza Puerta del Sol, 11, 28013 Madrid, Spain
+## 2 58.42900 15.582093    Skattegården 29B, 586 48 Linköping, Sweden</code></pre>
 </div>
 <div id="geo_connect_csv" class="section level3">
 <h3>geo_connect_CSV()</h3>
 <p>This function takes a csv file path (with the required columns <em>Address</em> and/or <em>Latitude</em> and <em>Longitude</em>) as a parameter and creates a vector with the information that will be passed to the <strong>geo_connect_vector</strong> function that will connect with the <em>Google Geocoding API</em> and get the corresponding output.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">geo_connect_csv</span>(<span class="st">&quot;my_csv_filepath&quot;</span>)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># geo_connect_csv(&quot;your_csv_filepath&quot;)</span>
+<span class="kw">geo_connect_csv</span>(<span class="kw">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;Addresses.csv&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;geoloc&quot;</span>))</code></pre></div>
+<pre><code>##    latitude longitude
+## 1 -32.88111  20.82806
+## 2  38.89768 -77.03653
+## 3  41.89068  12.49134
+## 4  40.64131 -73.77814
+## 5   0.00000   0.00000
+## 6   0.00000   0.00000
+##                                                                address
+## 1                                                 Eiffel, South Africa
+## 2 The White House, 1600 Pennsylvania Ave NW, Washington, DC 20500, USA
+## 3                           Piazza del Colosseo, 58, 00184 Roma, Italy
+## 4   John F. Kennedy International Airport (JFK), Queens, NY 11430, USA
+## 5                                                                ERROR
+## 6                                                                ERROR</code></pre>
 </div>
 </div>
 
