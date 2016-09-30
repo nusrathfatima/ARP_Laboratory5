@@ -64,20 +64,20 @@ test_that("testing function geo_connect_vector",{
   
 # geo_connect_csv()
 
-# test_that("testing function geo_connect_csv",{
-# 
-#   expect_equal(geo_connect_csv(system.file("extdata", "Addresses.csv", package = "geoloc")), 
-#                data.frame(latitude = c(48.85837, 38.89768, 41.89068, 40.64131, 0.00000, 0.00000),
-#                           longitude = c(2.294481, -77.036530, 12.49134, -73.77814, 0.00000, 0.00000),
-#                           address = c("Eiffel Tower, Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France",
-#                                       "The White House, 1600 Pennsylvania Ave NW, Washington, DC 20500, USA",
-#                                       "Piazza del Colosseo, 58, 00184 Roma, Italy",
-#                                       "John F. Kennedy International Airport (JFK), Queens, NY 11430, USA",
-#                                       "ERROR",
-#                                       "ERROR"),
-#                           stringsAsFactors = FALSE),
-#                tolerance = 0.000001)
-# })
+test_that("testing function geo_connect_csv",{
+
+  expect_equal(geo_connect_csv(system.file("extdata", "Addresses.csv", package = "geoloc")),
+               data.frame(latitude = c(-32.88111, 38.89768, 41.89068, 40.64131, 0.00000, 0.00000),
+                          longitude = c(20.82806, -77.036530, 12.49134, -73.77814, 0.00000, 0.00000),
+                          address = c("Eiffel, South Africa",
+                                      "The White House, 1600 Pennsylvania Ave NW, Washington, DC 20500, USA",
+                                      "Piazza del Colosseo, 58, 00184 Roma, Italy",
+                                      "John F. Kennedy International Airport (JFK), Queens, NY 11430, USA",
+                                      "ERROR",
+                                      "ERROR"),
+                          stringsAsFactors = FALSE),
+               tolerance = 0.000001)
+})
 
 
 
